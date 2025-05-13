@@ -15,14 +15,14 @@ const Page = () => {
       if (!user) {
         router.push("/login");
       } else {
-        setLoading(false);
+        router.push("/home")
       }
     });
 
     return () => unsubscribe();
   }, [router]);
 
-  return loading ? <div>Loading...</div> : <div>Welcome to the homepage</div>;
+  return loading ? <div></div> : <div></div>;
 };
 
 export default Page;
