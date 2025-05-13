@@ -9,8 +9,10 @@ const Page = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log(loading)
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       console.log("Auth User:", user);
+      console.dirxml
       if (!user) {
         router.push("/login");
       } else {
