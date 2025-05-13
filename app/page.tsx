@@ -7,7 +7,6 @@ import { auth } from "@/app/firebase/config";
 
 const Page = () => {
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -21,8 +20,10 @@ const Page = () => {
 
     return () => unsubscribe();
   }, [router]);
-
-  return loading ? <div></div> : <div></div>;
+  return (
+    <>
+    </>
+  )
 };
 
 export default Page;
