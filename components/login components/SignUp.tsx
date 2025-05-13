@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import TextField from "@mui/material/TextField";
 import IconButton from "@mui/material/IconButton";
@@ -15,6 +15,8 @@ import { auth } from '@/app/firebase/config'
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/navigation";
+import { onAuthStateChanged } from "firebase/auth";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -38,13 +40,18 @@ const SignUp = () => {
 
     // Add your signUpUser function call here
   };
-
+  const router = useRouter();
   const createAccount = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user)
-        toast.success("Account has been created! Please log in")
+        console.log(user);
+        toast.success("Account has been created!");
+        function routerfunction() {
+          router.push("/login");
+        }
+        setTimeout(routerfunction, 2000); 
+
       })
       .catch((error) => {
         if (error.code === "auth/email-already-in-use") {
@@ -60,7 +67,18 @@ const SignUp = () => {
       });
 
   }
-
+    useEffect(() => {
+      const unsubscribe = onAuthStateChanged(auth, (user) => {
+        console.log("Auth User:", user);
+        if (!user) {
+          return
+        } else {
+          router.push("/home")
+        }
+      });
+  
+      return () => unsubscribe();
+    }, [router]);
   return (
     <div
       className="flex items-center justify-center"
@@ -141,16 +159,8 @@ const SignUp = () => {
         </form>
 
         <div className="w-full mt-5">
-          <Button variant={"outline"} className="w-full" onClick={GoogleLogin}>
-            Sign up with Google <AiOutlineGoogle />
-          </Button>
-          <Button
-            variant={"outline"}
-            className="w-full mt-3"
-            onClick={GithubLogin}
-          >
-            Sign up with Github <IoLogoGithub />
-          </Button>
+          <GoogleLogin />
+          <GithubLogin />
         </div>
       </div>
       <ToastContainer />

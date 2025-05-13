@@ -6,9 +6,6 @@ import IconButton from "@mui/material/IconButton";
 import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { GithubLogin } from "@/Logs/github";
-import { AiOutlineGoogle } from "react-icons/ai";
-import { IoLogoGithub } from "react-icons/io";
 import { GoogleLogin } from "@/Logs/google";
 import { Button } from "../ui/button";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -17,6 +14,7 @@ import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { onAuthStateChanged } from "firebase/auth";
+import { GithubLogin } from "@/Logs/github";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -44,9 +42,12 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user)
+        console.log(user);
         toast.success("Logged in successfully!");
-        router.push("/home");
+        function routerfunction() {
+          router.push("/home");
+        }
+        setTimeout(routerfunction, 2000); 
       })
       .catch((error) => {
         if (error.code === "auth/user-not-found") {
@@ -65,7 +66,7 @@ const Login = () => {
       const unsubscribe = onAuthStateChanged(auth, (user) => {
         console.log("Auth User:", user);
         if (!user) {
-          router.push("/login");
+          return ;
         } else {
           router.push("/home")
         }
@@ -138,12 +139,8 @@ const Login = () => {
           </Button>
         </form>
         <div className="w-full mt-5">
-          <Button variant={"outline"} className="w-full" onClick={GoogleLogin}>
-            Sign in with Google <AiOutlineGoogle />
-          </Button>
-          <Button variant={"outline"} className="w-full mt-3" onClick={GithubLogin}>
-            Sign in with Github <IoLogoGithub />
-          </Button>
+          <GoogleLogin />
+          <GithubLogin />
         </div>
       </div>
       <ToastContainer />
