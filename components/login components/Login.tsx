@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import TextField from "@mui/material/TextField";
 import IconButton from "@mui/material/IconButton";
@@ -16,6 +16,7 @@ import {auth} from '@/app/firebase/config'
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { onAuthStateChanged } from "firebase/auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -59,7 +60,19 @@ const Login = () => {
           console.error(error);
         }
       });
-  }
+  }  
+    useEffect(() => {
+      const unsubscribe = onAuthStateChanged(auth, (user) => {
+        console.log("Auth User:", user);
+        if (!user) {
+          router.push("/login");
+        } else {
+          router.push("/home")
+        }
+      });
+  
+      return () => unsubscribe();
+    }, [router]);
   return (
     <div
       className="flex items-center justify-center"
