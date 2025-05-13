@@ -7,8 +7,6 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { GithubLogin } from "@/Logs/github";
-import { AiOutlineGoogle } from "react-icons/ai";
-import { IoLogoGithub } from "react-icons/io";
 import { GoogleLogin } from "@/Logs/google";
 import { Button } from "../ui/button";
 import { auth } from '@/app/firebase/config'
