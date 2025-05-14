@@ -11,13 +11,12 @@ const Page = () => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      console.log("Auth User:", user);
       if (!user) {
         router.push("/login");
         localStorage.clear();
       } else {
         localStorage.clear();
-        router.push("/theme")
+        router.push("/home")
       }
     });
 

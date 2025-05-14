@@ -1,6 +1,6 @@
 "use client";
 import { getAuth, signInWithPopup } from "firebase/auth";
-import { provider } from "@/app/firebase/config"; 
+import { provider } from "@/app/firebase/config";
 import { useRouter } from "next/navigation";
 import { ButtonShadcn } from "@/components/ui/button";
 import { AiOutlineGithub } from "react-icons/ai";

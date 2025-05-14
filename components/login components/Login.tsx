@@ -47,7 +47,7 @@ const Login = () => {
         function routerfunction() {
           router.push("/theme");
         }
-        setTimeout(routerfunction, 2000); 
+        setTimeout(routerfunction, 2000);
       })
       .catch((error) => {
         if (error.code === "auth/user-not-found") {
@@ -61,7 +61,8 @@ const Login = () => {
           console.error(error);
         }
       });
-  }  
+  };  
+  
     useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, (user) => {
         console.log("Auth User:", user);

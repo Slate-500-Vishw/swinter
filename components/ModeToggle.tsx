@@ -25,7 +25,7 @@ export function ModeToggle() {
   };
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-3">
         <ButtonShadcn
           onClick={dark}
           className="bg-black text-white hover:bg-black/90"
@@ -34,7 +34,7 @@ export function ModeToggle() {
         </ButtonShadcn>
         <ButtonShadcn
           onClick={light}
-          className="bg-white text-black hover:bg-white/90"
+          className="bg-white text-black hover:bg-white/90 border border-[#2d2d2d]"
         >
           Light
         </ButtonShadcn>

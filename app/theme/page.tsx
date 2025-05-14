@@ -22,10 +22,7 @@ const ModalComponent = () => {
         centered
         open={modal2Open}
         footer={[
-          <Button type="primary" key="back" onClick={() => router.push("/push")}>
-            Ok
-          </Button>,
-          
+
         ]}
       >
         <ModeToggle />

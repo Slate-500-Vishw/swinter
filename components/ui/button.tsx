@@ -19,8 +19,9 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
         ghost: "bg-[#f5f5f5] border border-[#1976D2] text-[#1976D2]",
         link: "text-primary underline-offset-4 hover:underline",
-        sider: "bg-white text-[#2d2d2d] dark:bg-[#2d2d2d] dark:text-[#f5f5f5]",
-        login: "bg-[#2d2d2d] text-[#f5f5f5]"
+        sider: "bg-transparent text-[#2d2d2d] dark:bg-[#2d2d2d] dark:text-[#f5f5f5] cursor-pointer",
+        login: "bg-[#2d2d2d] text-[#f5f5f5]",
+        profile: "bg-transparent h-[50px] text-left cursor-pointer"
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",

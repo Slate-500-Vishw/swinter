@@ -65,6 +65,7 @@ const SignUp = () => {
       });
 
   }
+  
     useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, (user) => {
         console.log("Auth User:", user);
