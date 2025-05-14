@@ -8,7 +8,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { GithubLogin } from "@/Logs/github";
 import { GoogleLogin } from "@/Logs/google";
-import { Button } from "../ui/button";
+import { ButtonShadcn } from "../ui/button";
 import { auth } from '@/app/firebase/config'
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
@@ -46,7 +46,7 @@ const SignUp = () => {
         console.log(user);
         toast.success("Account has been created!");
         function routerfunction() {
-          router.push("/login");
+          router.push("/theme");
         }
         setTimeout(routerfunction, 2000); 
 
@@ -69,9 +69,10 @@ const SignUp = () => {
       const unsubscribe = onAuthStateChanged(auth, (user) => {
         console.log("Auth User:", user);
         if (!user) {
-          return
+          return localStorage.clear();
         } else {
-          router.push("/home")
+          router.push("/theme");
+          localStorage.clear();
         }
       });
   
@@ -145,15 +146,15 @@ const SignUp = () => {
           />
 
           {/* Signup Button */}
-          <Button
+          <ButtonShadcn
             type="submit"
             color="primary"
-            variant={"secondary"}
+            variant={"login"}
             className="mt-2"
             onClick={createAccount}
           >
             Sign Up
-          </Button>
+          </ButtonShadcn>
         </form>
 
         <div className="w-full mt-5">

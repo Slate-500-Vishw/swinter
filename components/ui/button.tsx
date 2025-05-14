@@ -16,10 +16,11 @@ const buttonVariants = cva(
         outline:
           "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
         secondary:
-          "bg-foreground accent-color shadow-xs hover:bg-foreground/90",
-        ghost:
-          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
+          "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
+        ghost: "bg-[#f5f5f5] border border-[#1976D2] text-[#1976D2]",
         link: "text-primary underline-offset-4 hover:underline",
+        sider: "bg-white text-[#2d2d2d] dark:bg-[#2d2d2d] dark:text-[#f5f5f5]",
+        login: "bg-[#2d2d2d] text-[#f5f5f5]"
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
@@ -35,7 +36,7 @@ const buttonVariants = cva(
   }
 );
 
-function Button({
+function ButtonShadcn({
   className,
   variant,
   size,
@@ -56,4 +57,4 @@ function Button({
   )
 }
 
-export { Button, buttonVariants }
+export { ButtonShadcn, buttonVariants };

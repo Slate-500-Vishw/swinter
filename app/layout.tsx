@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${jetBrain.className}`}>
-        <ThemeProvider 
+        <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem

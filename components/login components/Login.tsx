@@ -7,7 +7,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { GoogleLogin } from "@/Logs/google";
-import { Button } from "../ui/button";
+import { ButtonShadcn } from "../ui/button";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import {auth} from '@/app/firebase/config'
 import { useRouter } from "next/navigation";
@@ -45,7 +45,7 @@ const Login = () => {
         console.log(user);
         toast.success("Logged in successfully!");
         function routerfunction() {
-          router.push("/home");
+          router.push("/theme");
         }
         setTimeout(routerfunction, 2000); 
       })
@@ -66,9 +66,10 @@ const Login = () => {
       const unsubscribe = onAuthStateChanged(auth, (user) => {
         console.log("Auth User:", user);
         if (!user) {
-          return ;
+          return localStorage.clear();
         } else {
-          router.push("/home")
+          router.push("/theme");
+          localStorage.clear();
         }
       });
   
@@ -128,15 +129,15 @@ const Login = () => {
           />
 
           {/* Login Button */}
-          <Button
+          <ButtonShadcn
             type="submit"
             color="primary"
-            variant={"secondary"}
+            variant={"login"}
             className="mt-2"
             onClick={signInUser}
           >
             Log In
-          </Button>
+          </ButtonShadcn>
         </form>
         <div className="w-full mt-5">
           <GoogleLogin />

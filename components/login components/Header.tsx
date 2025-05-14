@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Button } from "../ui/button";
+import { ButtonShadcn } from "../ui/button";
 import {
   Sheet,
   SheetContent,
@@ -33,12 +33,12 @@ const Header = () => {
               </li>
               <li>
                 <Link href={"/login"}>
-                  <Button variant={"secondary"}>Login</Button>
+                  <ButtonShadcn variant={"secondary"}>Login</ButtonShadcn>
                 </Link>{" "}
               </li>
               <li>
                 <Link href={"/signup"}>
-                  <Button variant={"secondary"}>Sign Up</Button>
+                  <ButtonShadcn variant={"secondary"}>Sign Up</ButtonShadcn>
                 </Link>{" "}
               </li>
             </ul>
@@ -66,12 +66,12 @@ const Header = () => {
                   </li>
                   <li>
                     <Link href={"/login"}>
-                      <Button variant={"secondary"}>Login</Button>
+                      <ButtonShadcn variant={"secondary"}>Login</ButtonShadcn>
                     </Link>
                   </li>
                   <li>
                     <Link href={"/signup"}>
-                      <Button variant={"secondary"}>Sign Up</Button>
+                      <ButtonShadcn variant={"secondary"}>Sign Up</ButtonShadcn>
                     </Link>
                   </li>
                 </ul>

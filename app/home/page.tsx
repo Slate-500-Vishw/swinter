@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "@/app/firebase/config";
+import {SideBar} from "@/components/home components/Sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 
 const Page = () => {
   const router = useRouter();
@@ -23,9 +25,13 @@ const Page = () => {
   return (
     <>
       <div>
-        <h1 className="text-3xl accent-color mt-40 flex justify-center">
-          Welcome to Swinter
-        </h1>
+        <SidebarProvider>
+          <SideBar />
+          <main>
+            <SidebarTrigger />
+            Hello
+          </main>
+        </SidebarProvider>
       </div>
     </>
   );

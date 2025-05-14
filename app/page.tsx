@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "@/app/firebase/config";
 
+
 const Page = () => {
   const router = useRouter();
 
@@ -13,8 +14,10 @@ const Page = () => {
       console.log("Auth User:", user);
       if (!user) {
         router.push("/login");
+        localStorage.clear();
       } else {
-        router.push("/home")
+        localStorage.clear();
+        router.push("/theme")
       }
     });
 
