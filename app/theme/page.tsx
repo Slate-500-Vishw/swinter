@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import { Button, Modal } from "antd";
 import { ModeToggle } from "@/components/ModeToggle";
 import { useRouter } from "next/navigation";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const ModalComponent = () => {
   const router = useRouter(); // ✅ Call all hooks at the top
@@ -32,7 +30,6 @@ const ModalComponent = () => {
       >
         <ModeToggle />
       </Modal>
-      <ToastContainer />
     </>
   );
 };
